@@ -2,102 +2,156 @@
     syntax: "<angle>";
     initial-value: 132deg;
     inherits: false;
-  }
+}
   
-  :root {
-    --card-height: 65vh;
-    --card-width: calc(var(--card-height) / 1.5);
-  }
-  
-  
-  body {
-    min-height: 100vh;
-    background: #212534;
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    padding-top: 2rem;
-    padding-bottom: 2rem;
-    box-sizing: border-box;
-  }
-  
-  
-  .card {
-    background: #191c29;
-    width: var(--card-width);
-    height: var(--card-height);
-    padding: 3px;
-    position: relative;
-    border-radius: 6px;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    display: table-column;
-    font-size: 1.5em;
-    color: rgb(88 199 250 / 0%);
-    cursor: pointer;
-    font-family: 'Dancing Script', cursive;
-  }
-  
-  .card:hover {
-    color: DeepSkyBlue;
-    transition: color 1.3s;
-  }
-  .card:hover:before, .card:hover:after {
-    animation: none;
-    opacity: .5;
-    transition: 1.3s;
-  }
-  
-  
-  .card::before {
-    content: "";
-    width: 104%;
-    height: 102%;
-    border-radius: 8px;
-    background-image: linear-gradient(
-      var(--rotate)
-      , DeepSkyBlue	, DodgerBlue	 43%, Blue	);
-      position: absolute;
-      z-index: -1;
-      top: -1%;
-      left: -2%;
-      animation: spin 2.5s linear infinite;
-  }
-  
-  .card::after {
+:root {
+  --card-height: 58vh;
+  --card-width: calc(var(--card-height) / 1.5);
+}
+
+*{
+  font-family: 'Roboto Mono', monospace;
+}
+
+
+body {
+  min-height: 70vh;
+  background: #191c29;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  flex-direction: column;
+  box-sizing: border-box;
+}
+
+.title {
+  top: 0;
+  position: absolute;
+  width: 100%;
+  height: 100px;
+  padding-top: 15px;
+  font-size: 1.05em;
+}
+
+.virtual-card {
+  padding: 0;
+  margin: 0;
+  color: AliceBlue;
+}
+
+.name {
+  padding: 0;
+  margin: 0;
+  color: DodgerBlue;
+}
+                 
+.card {
+  background: #191c29;
+  width: var(--card-width);
+  height: var(--card-height);
+  position: absolute;
+  border-radius: 10px;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  font-size: 1.5em;
+  cursor: pointer;
+}
+.card:hover:before, .card:hover:after {
+  animation: none;
+  opacity: .8;
+  transition: .7s ease-in-out ;
+}
+
+
+.card::before {
+  content: "";
+  width: 104%;
+  height: 102%;
+  border-radius: 10px;
+  background-image: linear-gradient(
+    var(--rotate)
+    , DeepSkyBlue	, DodgerBlue	 43%, Blue	);
     position: absolute;
-    content: "";
-    top: calc(var(--card-height) / 6);
-    left: 0;
-    right: 0;
     z-index: -1;
-    height: 100%;
-    width: 100%;
-    margin: 0 auto;
-    transform: scale(0.8);
-    filter: blur(calc(var(--card-height) / 6));
-    background-image: linear-gradient(
-      var(--rotate)
-      , DeepSkyBlue	, DodgerBlue	 43%, Blue	);
-      opacity: 1;
-    transition: opacity .7s;
-    animation: spin 2.5s linear infinite;
+    top: -1%;
+    left: -2%;
+    animation: spin 1s linear infinite;
+}
+
+.card::after {
+  position: absolute;
+  content: "";
+  top: calc(var(--card-height) / 6);
+  left: 0;
+  right: 0;
+  z-index: -1;
+  height: 100%;
+  width: 100%;
+  margin: 0 auto;
+  transform: scale(.7);
+  filter: blur(calc(var(--card-height) / 5));
+  background-image: linear-gradient(
+    var(--rotate)
+    , DeepSkyBlue	, DodgerBlue	 43%, Blue	);
+    opacity: 1;
+  transition: opacity .7s;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    --rotate: 0deg;
   }
-  
-  @keyframes spin {
-    0% {
-      --rotate: 0deg;
-    }
-    100% {
-      --rotate: 360deg;
-    }
+  100% {
+    --rotate: 360deg;
   }
-  
-  a {
-    color: #212534;
-    text-decoration: none;
-    font-family: 'Roboto Mono', monospace;
-    font-weight: 700;
-    margin-top: 50px;
-  }
+}
+
+.profissao {
+  color: aliceblue;
+  position: absolute;
+  top: 22%;
+  color: LightSteelBlue;
+}
+
+.links{
+  font-size: .65em;
+  position: absolute;
+  bottom: 10;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.fa-instagram {
+    color: #9c47fc;
+    margin-left: 12px;
+    background: linear-gradient(to left bottom, #6959CD, #BA55D3, #FF1493, #FF7F50, #FF8C00, #FFFF00);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.fa-linkedin{
+  color: DodgerBlue;
+}
+
+.fa-github {
+  color: #000;
+}
+
+.fa-whatsapp{
+  color: MediumSeaGreen;
+}
+
+a {
+  color: DeepSkyBlue;
+  text-decoration: none;
+  font-weight: 700;
+  margin-top: 50px;
+}
