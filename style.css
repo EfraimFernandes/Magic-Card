@@ -9,6 +9,8 @@
 --card-width: calc(var(--card-height) / 1.5);
 }
 
+
+
 *{
 font-family: 'Roboto Mono', monospace;
 }
@@ -263,4 +265,11 @@ a {
   font-family: sans-serif;
   font-weight: bold;
   margin-top: 2rem;
+}
+
+@media (min-height: 600px) {
+  .card{
+    height: 85vh;
+    width: 55vh;
+  }
 }
